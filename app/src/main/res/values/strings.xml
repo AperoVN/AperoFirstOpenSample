@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AperoTutorialSDKSample</string>
+    <string name="setting_uk">English</string>
+    <string name="setting_es">Spanish</string>
+    <string name="setting_fr">French</string>
+    <string name="setting_hi">Hindi</string>
+    <string name="setting_pt">Portuguese</string>
+    <string name="setting_rs">Russian</string>
+</resources>
