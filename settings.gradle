@@ -19,8 +19,8 @@ dependencyResolutionManagement {
         maven {
             url 'https://artifactory.apero.vn/artifactory/gradle-release/'
             credentials {
-                username "bkplus"
-                password "bkplus#369@"
+                username "username"
+                password "password"
             }
         }
         maven {
