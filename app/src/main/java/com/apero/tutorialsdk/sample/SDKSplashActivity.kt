@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.apero.firstopen.vsltemplate1.VslFOTemplate1Config
+import com.apero.firstopen.vsltemplate1.VslFirstOpenSDK
 import com.apero.firstopen.vsltemplate1.admanager.NativeOBUtils
 import com.apero.firstopen.vsltemplate1.model.VslFOLanguageModel
 import com.apero.firstopen.vsltemplate1.splash.VslFOSplashActivity
@@ -12,6 +14,10 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 
 @SuppressLint("CustomSplashScreen")
 class SDKSplashActivity : VslFOSplashActivity() {
+    private companion object {
+        private const val TAG: String = "SDKSplashActivity"
+    }
+
     override fun initTemplate1Config(): VslFOTemplate1Config {
         val splashConfig = VslFOTemplate1Config.SplashConfig(
             banner = listOf(BuildConfig.banner_splash_1, BuildConfig.banner_splash_2),
@@ -94,7 +100,10 @@ class SDKSplashActivity : VslFOSplashActivity() {
 
     override fun nextScreen(context: Context, data: Bundle?) {
         val intent = Intent(context, MainActivity::class.java)
-        data?.let { intent.putExtras(data) }
+        data?.let {
+            Log.d(TAG, "Selected language code: ${data.getString(VslFirstOpenSDK.ARG_KEY_SELECTED_LANGUAGE_CODE)}")
+            intent.putExtras(data)
+        }
         context.startActivity(intent)
     }
 
